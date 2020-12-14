@@ -1,0 +1,44 @@
+{
+  "name": "parcel-optimizer-imagemin",
+  "version": "0.1.0",
+  "description": "Parcel optimizer plugin to minify images seamlessly.",
+  "keywords": [
+    "parcel",
+    "parcel-plugin",
+    "parcel-optimizer",
+    "imagemin"
+  ],
+  "author": "Mark van Seventer <mark@vseventer.com> (http://www.vseventer.com)",
+  "license": "MIT",
+  "main": "lib/",
+  "module": "src/",
+  "scripts": {
+    "build": "babel src/ -d lib/",
+    "lint": "eslint src/",
+    "preversion": "npm run lint && npm run build && git add -A lib/"
+  },
+  "dependencies": {
+    "@parcel/plugin": "^2.0.0-beta.1",
+    "@parcel/utils": "^2.0.0-alpha.3",
+    "filesize": "^6.1",
+    "imagemin": "^7",
+    "imagemin-gifsicle": "^7",
+    "imagemin-mozjpeg": "^9",
+    "imagemin-pngquant": "^9",
+    "imagemin-svgo": "^8",
+    "imagemin-webp": "^6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12",
+    "@babel/core": "^7.12",
+    "@babel/preset-env": "^7.12",
+    "babel-eslint": "^10.1",
+    "eslint": "^7.15",
+    "eslint-config-airbnb-base": "^14.2",
+    "eslint-plugin-import": "^2.22"
+  },
+  "engines": {
+    "node": ">=10",
+    "parcel": "^2.0.0-nightly.1 || ^2.0.0-beta.1"
+  }
+}
