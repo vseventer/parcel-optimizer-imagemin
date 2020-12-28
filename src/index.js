@@ -62,7 +62,13 @@ export default new Optimizer({
     map,
     options,
   }) {
-    const { type: bundleType } = bundle;
+    const { env, type: bundleType } = bundle;
+
+    // Skip optimizer if we don't want to minify.
+    if (!env.minify) {
+      return { contents, map };
+    }
+
     const { projectRoot } = options;
     const config = await getPluginConfig(projectRoot);
 
